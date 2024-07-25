@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LocadoraVeiculos</name>
+    </assembly>
+    <members>
+        <member name="T:ClientesController">
+            <summary>
+            Controlador para lidar com operações relacionadas aos clientes.
+            </summary>
+        </member>
+        <member name="M:ClientesController.GetCliente">
+            <summary>
+            Lista todos os clientes cadastrados.
+            </summary>
+            <returns>Uma lista de todos os clientes cadastrados.</returns>
+            <response code="200">Retorna a lista de clientes cadastrados.</response>
+        </member>
+        <member name="M:ClientesController.GetCliente(System.Int32)">
+            <summary>
+            Obtém informações de um cliente específico.
+            </summary>
+            <param name="id">O ID do cliente.</param>
+            <returns>As informações do cliente especificado.</returns>
+            <response code="200">Retorna as informações do cliente especificado.</response>
+            <response code="404">Se o cliente não for encontrado.</response>
+        </member>
+        <member name="M:ClientesController.Login(System.String,System.String)">
+            <summary>
+            Realiza o login de um cliente.
+            </summary>
+            <param name="email">O e-mail do cliente.</param>
+            <param name="senha">A senha do cliente.</param>
+            <returns>As informações do cliente logado.</returns>
+            <response code="200">Retorna as informações do cliente logado.</response>
+            <response code="404">Se o e-mail ou a senha estiverem incorretos.</response>
+        </member>
+        <member name="M:ClientesController.PutCliente(System.Int32,LocadoraVeiculos.Models.Cliente)">
+            <summary>
+            Atualiza as informações de um cliente existente.
+            </summary>
+            <param name="id">O ID do cliente a ser atualizado.</param>
+            <param name="cliente">Os dados atualizados do cliente.</param>
+            <returns>O cliente atualizado.</returns>
+            <response code="200">Retorna o cliente atualizado.</response>
+            <response code="400">Se o ID do cliente informado for inválido.</response>
+            <response code="404">Se o cliente não for encontrado.</response>
+        </member>
+        <member name="M:ClientesController.PostCliente(LocadoraVeiculos.Models.Cliente)">
+            <summary>
+            Cria um novo cliente.
+            </summary>
+            <param name="cliente">Os dados do novo cliente.</param>
+            <returns>O cliente criado.</returns>
+            <response code="200">Retorna o cliente criado.</response>
+        </member>
+        <member name="M:ClientesController.DeleteCliente(System.Int32)">
+            <summary>
+            Remove um cliente existente.
+            </summary>
+            <param name="id">O ID do cliente a ser removido.</param>
+            <returns>Uma mensagem indicando que o cliente foi removido com sucesso.</returns>
+            <response code="200">Retorna uma mensagem indicando que o cliente foi removido com sucesso.</response>
+            <response code="404">Se o cliente não for encontrado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.EnderecosController.GetEndereco">
+            <summary>
+            Lista todos os endereços cadastrados.
+            </summary>
+            <returns>Uma lista de todos os endereços cadastrados.</returns>
+            <response code="200">Retorna a lista de endereços cadastrados.</response>
+            <response code="404">Se não houver endereços cadastrados.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.EnderecosController.GetEndereco(System.Int32)">
+            <summary>
+            Obtém informações de um endereço específico.
+            </summary>
+            <param name="id">O ID do endereço.</param>
+            <returns>As informações do endereço especificado.</returns>
+            <response code="200">Retorna as informações do endereço especificado.</response>
+            <response code="404">Se o endereço não for encontrado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.EnderecosController.PutEndereco(System.Int32,LocadoraVeiculos.Models.Endereco)">
+            <summary>
+            Atualiza as informações de um endereço existente.
+            </summary>
+            <param name="id">O ID do endereço a ser atualizado.</param>
+            <param name="endereco">Os dados atualizados do endereço.</param>
+            <returns>O endereço atualizado.</returns>
+            <response code="200">Endereço atualizado com sucesso.</response>
+            <response code="400">Se o ID do endereço informado for inválido.</response>
+            <response code="404">Se o endereço não for encontrado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.EnderecosController.PostEndereco(LocadoraVeiculos.Models.Endereco)">
+            <summary>
+            Cria um novo endereço.
+            </summary>
+            <param name="endereco">Os dados do novo endereço.</param>
+            <returns>O endereço criado.</returns>
+            <response code="201">Retorna o endereço criado.</response>
+            <response code="400">Se a criação do endereço falhar.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.EnderecosController.DeleteEndereco(System.Int32)">
+            <summary>
+            Remove um endereço existente.
+            </summary>
+            <param name="id">O ID do endereço a ser removido.</param>
+            <returns>Uma mensagem indicando que o endereço foi removido com sucesso.</returns>
+            <response code="204">Endereço removido com sucesso.</response>
+            <response code="404">Se o endereço não for encontrado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.EnderecosController.GetEnderecos(System.Int32)">
+            <summary>
+            Lista todos os endereços de um cliente específico.
+            </summary>
+            <param name="ClienteID">O ID do cliente.</param>
+            <returns>As endereços do cliente especificado.</returns>
+            <response code="200">Retorna as endereços do cliente especificado.</response>
+            <response code="404">Se nenhum endereço for encontrada para o cliente especificado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ManutencoesController.GetManutencao">
+            <summary>
+            Lista todas as manutenções cadastradas.
+            </summary>
+            <returns>Uma lista de todas as manutenções cadastradas.</returns>
+            <response code="200">Retorna a lista de manutenções cadastradas.</response>
+            <response code="404">Se não houver manutenções cadastradas.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ManutencoesController.GetManutencao(System.Int32)">
+            <summary>
+            Obtém informações de uma manutenção específica.
+            </summary>
+            <param name="id">O ID da manutenção.</param>
+            <returns>As informações da manutenção especificada.</returns>
+            <response code="200">Retorna as informações da manutenção especificada.</response>
+            <response code="404">Se a manutenção não for encontrada.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ManutencoesController.PutManutencao(System.Int32,LocadoraVeiculos.Models.Manutencao)">
+            <summary>
+            Atualiza as informações de uma manutenção existente.
+            </summary>
+            <param name="id">O ID da manutenção a ser atualizada.</param>
+            <param name="manutencao">Os dados atualizados da manutenção.</param>
+            <returns>A manutenção atualizada.</returns>
+            <response code="200">Retorna a manutenção atualizada.</response>
+            <response code="400">Se o ID da manutenção informado for inválido.</response>
+            <response code="404">Se a manutenção não for encontrada.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ManutencoesController.PostManutencao(LocadoraVeiculos.Models.Manutencao)">
+            <summary>
+            Cria uma nova manutenção.
+            </summary>
+            <param name="manutencao">Os dados da nova manutenção.</param>
+            <returns>A manutenção criada.</returns>
+            <response code="201">Retorna a manutenção criada.</response>
+            <response code="400">Se a criação da manutenção falhar.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ManutencoesController.DeleteManutencao(System.Int32)">
+            <summary>
+            Remove uma manutenção existente.
+            </summary>
+            <param name="id">O ID da manutenção a ser removida.</param>
+            <returns>Uma mensagem indicando que a manutenção foi removida com sucesso.</returns>
+            <response code="200">Retorna uma mensagem indicando que a manutenção foi removida com sucesso.</response>
+            <response code="404">Se a manutenção não for encontrada.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ManutencoesController.GetManutencoesVeiculo(System.Int32)">
+            <summary>
+            Lista todas as manutenções de um veículo específico.
+            </summary>
+            <param name="VeiculoID">O ID do veículo.</param>
+            <returns>As manutenções do veículo especificado.</returns>
+            <response code="200">Retorna as manutenções do veículo especificado.</response>
+            <response code="404">Se nenhuma manutenção for encontrada para o veículo especificado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ReservasController.GetReserva">
+            <summary>
+            Lista todas as reservas cadastradas.
+            </summary>
+            <returns>Uma lista de todas as reservas cadastradas.</returns>
+            <response code="200">Retorna a lista de reservas cadastradas.</response>
+            <response code="404">Se não houver reservas cadastradas.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ReservasController.GetReserva(System.Int32)">
+            <summary>
+            Obtém informações de uma reserva específica.
+            </summary>
+            <param name="id">O ID da reserva.</param>
+            <returns>As informações da reserva especificada.</returns>
+            <response code="200">Retorna as informações da reserva especificada.</response>
+            <response code="404">Se a reserva não for encontrada.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ReservasController.PutReserva(System.Int32,LocadoraVeiculos.Models.Reserva)">
+            <summary>
+            Atualiza as informações de uma reserva existente.
+            </summary>
+            <param name="id">O ID da reserva a ser atualizada.</param>
+            <param name="reserva">Os dados atualizados da reserva.</param>
+            <returns>A reserva atualizada.</returns>
+            <response code="200">Retorna a reserva atualizada.</response>
+            <response code="400">Se o ID da reserva informado for inválido.</response>
+            <response code="404">Se a reserva não for encontrada.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ReservasController.atualizaStatusReserva(System.Int32)">
+            <summary>
+            Atualiza o status da reserva para Cancelado
+            </summary>
+            <param name="veiculo">Id do veiculo.</param>
+            <returns>O reserva atualizado.</returns>
+            <response code="200">Retorna o reserva atualizado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ReservasController.GetReservaCliente(System.Int32)">
+            <summary>
+            Lista todas as reservas de um cliente específico.
+            </summary>
+            <param name="ClienteID">O ID do cliente.</param>
+            <returns>As reservas do cliente especificado.</returns>
+            <response code="200">Retorna as reservas do cliente especificado.</response>
+            <response code="404">Se nenhuma reserva for encontrada para o cliente especificado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ReservasController.PostReserva(LocadoraVeiculos.Models.Reserva)">
+            <summary>
+            Cria uma nova reserva.
+            </summary>
+            <param name="reserva">Os dados da nova reserva.</param>
+            <returns>A reserva criada.</returns>
+            <response code="201">Retorna a reserva criada.</response>
+            <response code="400">Se a criação da reserva falhar.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ReservasController.DeleteReserva(System.Int32)">
+            <summary>
+            Remove uma reserva existente.
+            </summary>
+            <param name="id">O ID da reserva a ser removida.</param>
+            <returns>Uma mensagem indicando que a reserva foi removida com sucesso.</returns>
+            <response code="200">Retorna uma mensagem indicando que a reserva foi removida com sucesso.</response>
+            <response code="404">Se a reserva não for encontrada.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.ReservasController.GetReservaByVeiculo(System.Int32)">
+            <summary>
+            Lista todas as reservas de um veículo específico.
+            </summary>
+            <param name="VeiculoID">O ID do veículo.</param>
+            <returns>As reservas do veículo especificado.</returns>
+            <response code="200">Retorna as reservas do veículo especificado.</response>
+            <response code="404">Se nenhuma reserva for encontrada para o veículo especificado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.VeiculosController.GetVeiculo">
+            <summary>
+            Lista todos os veículos cadastrados.
+            </summary>
+            <returns>Uma lista de todos os veículos cadastrados.</returns>
+            <response code="200">Retorna a lista de veículos cadastrados.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.VeiculosController.GetVeiculosDisponiveis">
+            <summary>
+            Lista os veículos disponiveis.
+            </summary>
+            <returns>Uma lista de veículos disponiveis.</returns>
+            <response code="200">Retorna a lista de veículos disponiveis.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.VeiculosController.GetVeiculo(System.Int32)">
+            <summary>
+            Obtém informações de um veículo específico.
+            </summary>
+            <param name="id">O ID do veículo.</param>
+            <returns>As informações do veículo especificado.</returns>
+            <response code="200">Retorna as informações do veículo especificado.</response>
+            <response code="404">Se o veículo não for encontrado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.VeiculosController.PutVeiculo(System.Int32,LocadoraVeiculos.Models.Veiculo)">
+            <summary>
+            Atualiza as informações de um veículo existente.
+            </summary>
+            <param name="id">O ID do veículo a ser atualizado.</param>
+            <param name="veiculo">Os dados atualizados do veículo.</param>
+            <returns>O veículo atualizado.</returns>
+            <response code="200">Retorna o veículo atualizado.</response>
+            <response code="400">Se o ID do veículo informado for inválido.</response>
+            <response code="404">Se o veículo não for encontrado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.VeiculosController.reservaVeiculo(System.Int32)">
+            <summary>
+            Atualiza o status do veiculo para Reservado
+            </summary>
+            <param name="veiculo">Id do veiculo.</param>
+            <returns>O veículo atualizado.</returns>
+            <response code="200">Retorna o veículo atualizado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.VeiculosController.atualizaStatusVeiculo(System.Int32)">
+            <summary>
+            Atualiza o status do veiculo para Disponivel
+            </summary>
+            <param name="veiculo">Id do veiculo.</param>
+            <returns>O veículo atualizado.</returns>
+            <response code="200">Retorna o veículo atualizado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.VeiculosController.PostVeiculo(LocadoraVeiculos.Models.Veiculo)">
+            <summary>
+            Cria um novo veículo.
+            </summary>
+            <param name="veiculo">Os dados do novo veículo.</param>
+            <returns>O veículo criado.</returns>
+            <response code="200">Retorna o veículo criado.</response>
+        </member>
+        <member name="M:LocadoraVeiculos.Controllers.VeiculosController.DeleteVeiculo(System.Int32)">
+            <summary>
+            Remove um veículo existente.
+            </summary>
+            <param name="id">O ID do veículo a ser removido.</param>
+            <returns>Uma mensagem indicando que o veículo foi removido com sucesso.</returns>
+            <response code="200">Retorna uma mensagem indicando que o veículo foi removido com sucesso.</response>
+            <response code="404">Se o veículo não for encontrado.</response>
+        </member>
+        <member name="T:LocadoraVeiculos.Migrations.criandoBanco">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.criandoBanco.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.criandoBanco.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.criandoBanco.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:LocadoraVeiculos.Migrations.atualizandoVeiculo">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.atualizandoVeiculo.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.atualizandoVeiculo.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.atualizandoVeiculo.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:LocadoraVeiculos.Migrations.adicionandoColunaBairro">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.adicionandoColunaBairro.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.adicionandoColunaBairro.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.adicionandoColunaBairro.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

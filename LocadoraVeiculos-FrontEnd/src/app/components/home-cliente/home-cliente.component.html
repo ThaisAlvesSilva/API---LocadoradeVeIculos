@@ -1,0 +1,64 @@
+<div class="solicitar">
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="col-md-12 col-2 col-sm-1 col-xs-12 col-md-1 col-lg-1">
+                <img class="logo" src="../../assets/imagens/logo.png" id="icon" alt="User Icon">
+            </div>
+
+            <div class="col-md-10 col-9 col-sm-4 col-xs-12 col-md-6 col-lg-10">
+                <div class="navbar-nav justify-content-center">
+                    <h1 class="font-weight-bold">Suas Reservas</h1>
+                </div>
+            </div>
+
+            <div class="divIconeSair col-md-12 col-1 col-sm-1 col-xs-12 col-md-1 col-lg-1">
+                <button class="btn-logOut" (click) = "logOut()">
+                    <img class="iconeSair" src="../../assets/imagens/logout.png" id="icon" alt="sair">
+                </button>
+                
+            </div>
+        </nav>
+    </header>
+    <div class="d-flex justify-content-end mt-2 botaoReserva">
+        <a  routerLink="/Reservar" >
+            <button type="button" class="btn btn-success">Reservar</button>
+        </a>
+    </div>
+    <div class = "container">
+        <div class = "row">
+            @if(reservas.length > 0){
+                @for(reserva of reservas; track reserva){
+                    <div class="card col-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../../assets/imagens/reserva.png" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <strong>Data de Início: </strong> {{reserva.dtInicio | date : 'dd/MM/yyyy' }}<br>
+                                <strong>Data de Fim: </strong> {{reserva.dtFim | date : 'dd/MM/yyyy'}}<br>
+                                <strong>Valor: </strong> {{reserva.valor | currency:'BRL':'symbol':'1.2-2' }}<br>
+                                <strong>Status: </strong> {{reserva.status}}<br>
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Veículo:</strong> {{reserva.veiculo?.modelo}}<br> 
+                                <strong>Marca:</strong> {{reserva.veiculo?.marca}} <br> 
+                                <strong>Placa:</strong> {{reserva.veiculo?.placa}} <br> 
+                                <strong>Quilometragem:</strong> {{reserva.veiculo?.quilometragem}} km 
+                            </li> 
+                        </ul>
+                        
+                        @if(reserva.status == "Andamento"){
+                        <div class="row d-flex botaoCancelar justify-content-center">
+                                <button type="button"  (click)="atualizaStatusReserva(reserva)" class="col-4 btn btn-danger">Cancelar</button>
+                            </div> 
+                        }
+                        
+                    </div>
+                }
+            }@else {
+                <h4>Você ainda não possui reservas cadastradas.</h4>
+            }
+           
+        </div>
+    </div>
+</div>

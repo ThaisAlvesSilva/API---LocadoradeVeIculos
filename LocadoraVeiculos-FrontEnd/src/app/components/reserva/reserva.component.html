@@ -1,0 +1,56 @@
+<div class="reservar">
+    <div *ngIf="veiculos.length" id="formContent" class="card-header mx-auto">
+        <h3>Preencha as informações da reserva:</h3>
+        <form (ngSubmit)="submit()" [formGroup]="dadosReservaForm" #formDir="ngForm">
+            <div class="row">
+                <div class="col-2">
+                    <label class="col-12" for="dtInicio">Data de inicio<span> *</span></label>
+                    <input id="dtInicio" name="dtInicio" class="col-12" type="date" placeholder="dtInicio" name="dtInicio" formControlName="dtInicio" [min]="minDate"/>
+                </div>
+                <div class="col-2">
+                    <label class="col-12" for="dtFim">Data Final<span> *</span></label>
+                    <input id="dtFim" name="dtFim" class="col-12" type="date" placeholder="dtFim" name="dtFim" formControlName="dtFim" [min]="minEndDate"/>
+                </div>
+                <div class="col-3 align-items-center" style="margin-top: 50px;">
+                    <p *ngIf="formDir.submitted && (dadosReservaForm.controls['dtInicio'].hasError('required') || dadosReservaForm.controls['dtFim'].hasError('required'))" class="validation-error">As datas são obrigatórias</p>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-2" for="nome">Escolha um veículo:<span> *</span></label>
+                <p style="margin-top: 18px" *ngIf="formDir.submitted && dadosReservaForm.controls['VeiculoID'].hasError('required')" class="col-2 validation-error">Escolha um veículo</p>
+            </div>
+            
+            <div class="row mt-2">
+                @for(veiculo of veiculos; track $index){
+                    <div class="col-md-2">
+                        <div class="card selectable-card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{veiculo.modelo}}</h5>
+                                <h6><strong>Marca:</strong> {{veiculo.marca}}</h6> <br> 
+                                <h6 ><strong>Quilometragem:</strong> {{veiculo.quilometragem}} km</h6>
+                                <p class="card-text"><b>Tarifa diária:</b> {{veiculo.valorAluguelDia | currency:'BRL':'symbol':'1.2-2' }}</p>
+                                <div class="d-flex  form-check justify-content-center">
+                                    <input class="form-check-input" name="VeiculoID" formControlName="VeiculoID" type="radio" value="{{veiculo.id}}" id="{{veiculo.id}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            
+            <button type="submit" class="btn btn-success mt-3">Reservar</button>
+            <a href="HomeCliente">
+                <button type="button" class="btn btn-danger mt-3 btnCancelar">Cancelar</button>
+            </a>
+            
+        </form>
+    </div>
+    <div *ngIf="!veiculos.length" class="mt-3">
+        <h4>Desculpa, mas no momento não há veículos disponíveis para reserva.</h4>
+        <a routerLink (click)="goBack()">
+            <button type="submit" class="btn btn-primary mt-3 btnCancelar">Voltar</button>
+        </a>
+    </div>
+        
+    
+</div>

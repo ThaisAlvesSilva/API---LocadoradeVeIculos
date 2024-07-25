@@ -1,0 +1,22 @@
+<div class="login  bg-dark">
+    <div id="formContent" class="card-header mx-auto">
+        <img src="../../assets/imagens/logo.png" id="icon" alt="User Icon" />
+
+        <form (ngSubmit) = "submit()" [formGroup]="loginForm" #formDir="ngForm" >
+            <input type="text" id="login" [ngClass]="{'inputError':formDir.submitted && loginForm.controls['email'].hasError('required')}" name="login" placeholder="Email" formControlName = "email">
+            <p *ngIf = "formDir.submitted && (loginForm.controls['email'].hasError('required') || loginForm.controls['email'].hasError('email'))" class = "validation-error">Informe um email válido</p>
+
+            <input type="password" id="password" [ngClass]="{'inputError':formDir.submitted && loginForm.controls['senha'].hasError('required')}" name="login" placeholder="Senha" formControlName = "senha">
+            <p *ngIf = "formDir.submitted && loginForm.controls['senha'].hasError('required')" class = "validation-error">Informe a senha</p>
+            
+            <p *ngIf ="!sucessLogin"  class = "validation-error">Login ou senha incorreta</p>
+
+            <input type="submit" name="btn" value="Login" class="btn btn-outline-danger float-right login_btn">
+        </form>
+
+        <div id="formFooter">
+            <a  routerLink="/Cadastro" >Criar conta</a>
+        </div>
+
+    </div>
+</div>

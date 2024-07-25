@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LocadoraVeiculos</name>
+    </assembly>
+    <members>
+        <member name="T:LocadoraVeiculos.Migrations.CriandoBanco">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.CriandoBanco.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.CriandoBanco.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:LocadoraVeiculos.Migrations.CriandoBanco.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
